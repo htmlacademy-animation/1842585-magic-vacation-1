@@ -1,24 +1,5 @@
 .social-block {
   position: relative;
-
-  &:hover {
-    .social-block__list {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .social-block__link {
-      transform: scale(1);
-
-      &--insta {
-        transition-delay: 0.1s;
-      }
-
-      &--vk {
-        transition-delay: 0.2s;
-      }
-    }
-  }
 }
 
 .social-block__toggler {
@@ -153,6 +134,10 @@
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+
+    .social-block__link {
+      transform: scale(1);
+    }
   }
 
   li {
@@ -234,6 +219,7 @@
   }
 
   &--insta {
+    transition-delay: 0.1s;
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -246,6 +232,7 @@
   }
 
   &--vk {
+    transition-delay: 0.2s;
     svg {
       width: 1.7rem;
       height: 1rem;
