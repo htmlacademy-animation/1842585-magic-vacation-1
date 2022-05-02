@@ -1,12 +1,5 @@
 .social-block {
   position: relative;
-
-  &:hover {
-    .social-block__list {
-      opacity: 1;
-      pointer-events: auto;
-    }
-  }
 }
 
 .social-block__toggler {
@@ -89,6 +82,7 @@
   margin-top: 1.5rem;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.3s;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -140,6 +134,10 @@
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+
+    .social-block__link {
+      transform: scale(1);
+    }
   }
 
   li {
@@ -168,6 +166,8 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: transform 0.3s;
+  transform: scale(0);
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -219,6 +219,7 @@
   }
 
   &--insta {
+    transition-delay: 0.1s;
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -231,6 +232,7 @@
   }
 
   &--vk {
+    transition-delay: 0.2s;
     svg {
       width: 1.7rem;
       height: 1rem;

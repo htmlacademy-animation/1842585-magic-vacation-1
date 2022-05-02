@@ -43,6 +43,7 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
+  animation: 1s wide-in;
 
   &:focus {
     border: 1px solid $c-purple;
@@ -75,6 +76,43 @@
     width: calc(100% - 5rem);
     height: 4rem;
     font-size: 1.6rem;
+  }
+}
+
+@keyframes wide-in {
+  0% {
+    width: calc(50% - 21rem);
+    margin-left: 50%;
+  }
+  100% {
+    width: calc(100% - 21rem);
+    margin-left: unset;
+  }
+}
+
+@media (max-width: $mobile) and (orientation: portrait), (max-width: $mobile) and (orientation: landscape) {
+  @keyframes wide-in {
+    0% {
+      width: calc(50% - 5rem);
+      margin-left: 50%;
+    }
+    100% {
+      width: calc(100% - 5rem);
+      margin-left: unset;
+    }
+  }
+}
+
+@media (max-width: $tablet) and (orientation: portrait), (max-width: $tablet) and (orientation: landscape) {
+  @keyframes wide-in {
+    0% {
+      width: calc(50% - 5rem);
+      margin-left: 50%;
+    }
+    100% {
+      width: calc(100% - 5rem);
+      margin-left: unset;
+    }
   }
 }
 
