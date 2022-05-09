@@ -2,6 +2,11 @@ export default () => {
   let header = document.querySelector(`.js-header`);
   let menuToggler = document.querySelector(`.js-menu-toggler`);
   let menuLinks = document.querySelectorAll(`.js-menu-link`);
+  let headerWrapper = header.querySelector(`.page-header__wrapper`);
+
+  document.body.onload = function () {
+    headerWrapper.classList.add(`header_loaded`);
+  };
 
   if (menuToggler) {
     menuToggler.addEventListener(`click`, function () {
