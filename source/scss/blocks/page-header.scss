@@ -20,10 +20,18 @@
 }
 
 .page-header__wrapper {
-  @include container;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  opacity: 0;
+  transition-property: padding, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0,.8,0,.8);
+}
+
+.content_loaded .page-header__wrapper {
+  @include container;
+  opacity: 1;
 }
 
 .page-header__logo {
