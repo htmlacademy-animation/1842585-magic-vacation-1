@@ -26,10 +26,10 @@
   opacity: 0;
   transition-property: padding, opacity;
   transition-duration: 0.5s;
-  transition-timing-function: cubic-bezier(0,.8, 0, .8);
+  transition-timing-function: cubic-bezier(0,.8,0,.8);
 }
 
-.header_loaded {
+.content_loaded .page-header__wrapper {
   @include container;
   opacity: 1;
 }
