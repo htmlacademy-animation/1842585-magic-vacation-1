@@ -1032,29 +1032,17 @@ img {
 
 .loading-background {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
   z-index: 10;
+  inset: 0;
   background-color: #5f458c;
+  transition: transform 0.3s;
+  transform: scaleY(0);
+  transform-origin: bottom left;
+}
+.loading-background.active {
+  transform: scaleY(1);
 }
 
-.screen--prizes.active ~ .loading-background {
-  animation: loading 0.3s;
-}
-
-@keyframes loading {
-  0% {
-    height: 0;
-  }
-  50% {
-    height: 100%;
-  }
-  100% {
-    height: 0;
-  }
-}
 .btn {
   padding: 0;
   margin: 0;
