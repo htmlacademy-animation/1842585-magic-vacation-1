@@ -8,6 +8,7 @@ export default class FullPageScroll {
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.loadingScreen = document.querySelector(`.js-loading-screen`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -42,7 +43,23 @@ export default class FullPageScroll {
   onUrlHashChanged() {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
-    this.changePageDisplay();
+
+    switch (this.screenElements[this.activeScreen].id) {
+      case `prizes`:
+        this.toggleLoadingScreen();
+        this.timeout = setTimeout(() => {
+          this.timeout = null;
+          this.changePageDisplay();
+          this.toggleLoadingScreen();
+        }, 300);
+        break;
+      default:
+        this.changePageDisplay();
+    }
+  }
+
+  toggleLoadingScreen() {
+    this.loadingScreen.classList.toggle(`active`);
   }
 
   changePageDisplay() {
