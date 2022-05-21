@@ -22,3 +22,16 @@
     }
   }
 }
+
+.loading-background {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  background-color: $c-dark;
+  transition: transform 0.3s;
+  transform: scaleY(0);
+  transform-origin: bottom left;
+  &.active {
+    transform: scaleY(1);
+  }
+}
