@@ -159,7 +159,6 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
-    transform: scale(0);
     animation-name: wide-in;
     animation-duration: 0.3s;
     animation-timing-function: cubic-bezier(1, 2, 1, 1);
@@ -182,9 +181,26 @@
     }
   }
 
+  &:nth-child(2) {
+    &::before, p {
+      animation-delay: 0.3s;
+    }
+  }
+
+  &:nth-child(3) {
+    &::before, p {
+      animation-delay: calc(2 * 0.3s);
+    }
+  }
+
+  &:nth-child(4) {
+    &::before, p {
+      animation-delay: calc(3 * 0.3s);
+    }
+  }
+
   p {
-    margin: 0 0 0 1rem;
-    opacity: 0;
+    margin: 0;
     animation-name: appear-slide;
     animation-duration: 0.3s;
     animation-fill-mode: both;
@@ -207,11 +223,11 @@
 @keyframes appear-slide {
   from {
     opacity: 0;
-    margin-left: 1rem;
+    padding-left: 0.5rem;
   }
   to {
     opacity: 1;
-    margin-left: 0;
+    padding-left: 0;
   }
 }
 
