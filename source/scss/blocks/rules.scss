@@ -159,6 +159,10 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
+    animation-name: wide-in;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(1, 2, 1, 1);
+    animation-fill-mode: both;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -179,10 +183,51 @@
 
   p {
     margin: 0;
+    animation-name: appear-slide;
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
     }
+  }
+
+  &:nth-child(2) {
+    &::before, p {
+      animation-delay: 0.3s;
+    }
+  }
+
+  &:nth-child(3) {
+    &::before, p {
+      animation-delay: calc(2 * 0.3s);
+    }
+  }
+
+  &:nth-child(4) {
+    &::before, p {
+      animation-delay: calc(3 * 0.3s);
+    }
+  }
+}
+
+@keyframes wide-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes appear-slide {
+  from {
+    opacity: 0;
+    padding-left: 0.5rem;
+  }
+  to {
+    opacity: 1;
+    padding-left: 0;
   }
 }
 
@@ -190,6 +235,11 @@
   position: absolute;
   bottom: 6rem;
   right: 5.6rem;
+  animation-name: text-appear;
+  animation-duration: 0.3s;
+  animation-delay: calc(4 * 0.3s);
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(1, 0.8, 0.8, 1);
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;
@@ -200,6 +250,7 @@
     left: 0;
     right: 0;
     bottom: 4rem;
+    animation-name: text-appear-landscape;
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
@@ -209,5 +260,35 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     bottom: 2rem;
     right: 1.5rem;
+  }
+}
+
+@keyframes text-appear {
+  from {
+    color: transparent;
+    font-size: 0rem;
+  }
+  80% {
+    color: transparent;
+    font-size: unset;
+  }
+  to {
+    color: $c-dark;
+  }
+}
+
+@keyframes text-appear-landscape {
+  from {
+    color: transparent;
+    font-size: 0.4rem;
+    left: unset;
+  }
+  80% {
+    color: transparent;
+    font-size: unset;
+    left: 0;
+  }
+  to {
+    color: $c-dark;
   }
 }
